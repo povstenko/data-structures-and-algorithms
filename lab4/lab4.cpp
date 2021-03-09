@@ -102,6 +102,18 @@ public:
             }
         }
     }
+    void clean()
+    {
+        head = nullptr;
+        tail = nullptr;
+    }
+    int count()
+    {
+        int n = 0;
+        for (Node *e = this->head; e != nullptr; e = e->next, n++)
+            ;
+        return n;
+    }
 
     template <class U>
     friend ostream& operator<<(ostream& os, const DoublyLinkedList<U>& dll)
@@ -122,5 +134,13 @@ int main()
     cout << l1 << "\n";
     l1.deleteVal(11);
     cout << l1 << "\n";
+    l1.clean();
+    cout << l1 << "\n";
+    cout << l1.count() << "\n";
+    l1.insertFront(13);
+    l1.insertBack(4);
+    l1.insertBack(7);
+    cout << l1 << "\n";
+    cout << l1.count() << "\n";
     return 0;
 }
